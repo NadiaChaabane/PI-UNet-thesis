@@ -37,9 +37,13 @@ matplotlib
 
 
 ---
-## Data Preperation
 
-Datasets used in this thesis are based on layouts from Zhao et al. If you generate or download datasets, update the configuration file (e.g., config_ul.yml) with your own paths:
+## 📂 Data Preparation
+
+Datasets used in this thesis are based on layouts from Zhao et al.  
+If you generate or download datasets, update the configuration file (e.g., `config_ul.yml`) with your own paths:
+
+```yaml
 data_root: /path/to/dataset/FDM
 train_list: /path/to/train.txt
 val_list: /path/to/val.txt
