@@ -1,8 +1,6 @@
 # Physics-Informed CNNs for the Poisson Equation 
 
-This repository contains the implementation of my Bachelor's thesis:  
-**“Physics-Informed Convolutional Neural Networks for the 2D Poisson Equation with Perturbation-Aware Training.”**
-
+This repository contains the implementation of my Bachelor's thesis.
 It reproduces the PI-UNet framework of [Zhao et al. (2023)](https://doi.org/10.1016/j.engappai.2022.105516) and extends it with **Gaussian blur** and **Gaussian noise** perturbations to systematically study model robustness.  
 
 ---
