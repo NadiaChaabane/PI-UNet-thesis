@@ -33,6 +33,7 @@ tensorboard
 opencv-python
 numpy
 matplotlib
+```  
 
 
 
@@ -48,21 +49,26 @@ data_root: /path/to/dataset/FDM
 train_list: /path/to/train.txt
 val_list: /path/to/val.txt
 test_list: /path/to/test.txt
+``` 
 
 ---
-## Train and Test - Train the model without labeled data.
-shell
+## ▶️ Train and Test
+
+```shell
 cd example
 python train_ul.py
+```
 - test the trained model. Please modify the position of trained model in the test.py, and
-shell
+```shell
 python test.py
+```
 
 ---
 ## 🔧 Perturbation Settings
 
 The perturbation-aware extensions (Gaussian blur and additive Gaussian noise) are implemented in:
-
+```shell
 custom_transform.py
+```
 
 The intensity and usage of these perturbations are fully controlled through the YAML configuration files.  
