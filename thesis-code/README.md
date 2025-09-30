@@ -1,73 +1,65 @@
-# physics-informed CNN for HSL-TFP
-This is the implementation of ‘’Physics-informed convolutional neural networks for temperature field prediction of heat source layout without labeled data“
+# Physics-Informed CNNs for the Poisson Equation (Bachelor Thesis, TU Berlin)
 
-- the Pipeline of our method.
+This repository contains the implementation of my Bachelor's thesis:  
+**“Physics-Informed Convolutional Neural Networks for the 2D Poisson Equation with Perturbation-Aware Training.”**
 
-![pipeline](figures/pipeline.png)
+It reproduces the PI-UNet framework of [Zhao et al. (2023)](https://doi.org/10.1016/j.engappai.2022.105516) and extends it with **Gaussian blur** and **Gaussian noise** perturbations to systematically study model robustness.  
 
-- The visualization of the steady-state temperature field obtained by finite difference method (FDM) and the proposed method.
+---
 
-The case with simple heat source layout.
+## 📌 Overview
 
-![simple](figures/simple.png)
+- **Pipeline of the method**  
 
-- The case with complex heat source layout.
+  ![pipeline](figures/pipeline.png)
 
-![complex](figures/complex.png)
+- **Visualization of steady-state temperature fields** obtained with the Finite Difference Method (FDM) and PI-UNet-based models.  
 
-# Usage
+  *Case with simple heat source layout:*  
+  ![simple](figures/simple.png)  
 
-## Environment
+  *Case with complex heat source layout:*  
+  ![complex](figures/complex.png)  
 
-Note that you need to choose the right version of pytorch-lightning.
+---
+
+## ⚙️ Environment
+
+Make sure to install the correct version of PyTorch Lightning:  
 
 ```shell
-torch=1.12.1+cu113
-torchvision=0.13.1+cu113
-pytorch-lightning=1.1.0
+torch==1.12.1+cu113
+torchvision==0.13.1+cu113
+pytorch-lightning==1.1.0
 tensorboard
 opencv-python
-```
+numpy
+matplotlib
 
-## Data Preparation
 
-- the datasets used in this paper are uploaded to [here](https://nudteducn-my.sharepoint.com/:f:/g/personal/zhaoxiaoyu13_nudt_edu_cn/En4bhHWmNHFEkAs9r06RLl8BD7r7-eBIRph0VilC-axCiA?e=DGzclf). Please download the dataset to your local hard drive, and modify the data address in the configuration file **config_ul.yml**, consisting of the data_root, train_list, val_list, and test_list.
 
-```shell
-data_root: /mnt/jfs/zhaoxiaoyu/data/ul/complex_component/FDM
-train_list: /mnt/jfs/zhaoxiaoyu/data/ul/train.txt
-val_list: /mnt/jfs/zhaoxiaoyu/data/ul/val.txt
-test_list: /mnt/jfs/zhaoxiaoyu/data/ul/test.txt
-```
 
-## Train and Test
+## Data Preperation
+Datasets used in this thesis are based on layouts from Zhao et al. If you generate or download datasets, update the configuration file (e.g., config_ul.yml) with your own paths:
+data_root: /path/to/dataset/FDM
+train_list: /path/to/train.txt
+val_list: /path/to/val.txt
+test_list: /path/to/test.txt
 
-- Train the model without labeled data.
 
-```shell
+## Train and Test - Train the model without labeled data.
+shell
 cd example
 python train_ul.py
-```
-
 - test the trained model. Please modify the position of trained model in the test.py, and
-
-```shell
+shell
 python test.py
-```
 
-# Citation
 
-If you find our codes or models useful, please consider to give us a star or cite with:
+## 🔧 Perturbation Settings
 
-```
-@article{zhao2023physics,
-  title={Physics-informed convolutional neural networks for temperature field prediction of heat source layout without labeled data},
-  author={Zhao, Xiaoyu and Gong, Zhiqiang and Zhang, Yunyang and Yao, Wen and Chen, Xiaoqian},
-  journal={Engineering Applications of Artificial Intelligence},
-  volume={117},
-  pages={105516},
-  year={2023},
-  publisher={Elsevier}
-}
-```
+The perturbation-aware extensions (Gaussian blur and additive Gaussian noise) are implemented in:
 
+custom_transform.py
+
+The intensity and usage of these perturbations are fully controlled through the YAML configuration files.  
