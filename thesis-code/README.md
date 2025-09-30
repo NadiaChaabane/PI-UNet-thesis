@@ -1,4 +1,4 @@
-# Physics-Informed CNNs for the Poisson Equation (Bachelor Thesis, TU Berlin)
+# Physics-Informed CNNs for the Poisson Equation 
 
 This repository contains the implementation of my Bachelor's thesis:  
 **“Physics-Informed Convolutional Neural Networks for the 2D Poisson Equation with Perturbation-Aware Training.”**
