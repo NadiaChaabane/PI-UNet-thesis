@@ -58,7 +58,7 @@ test_list: /path/to/test.txt
 cd example
 python train_ul.py
 ```
-- test the trained model. Please modify the position of trained model in the test.py, and
+Update the checkpoint path in test.py to point to your saved model before running: and
 ```shell
 python test.py
 ```
